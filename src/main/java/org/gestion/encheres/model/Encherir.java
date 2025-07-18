@@ -3,6 +3,7 @@ package org.gestion.encheres.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -14,6 +15,12 @@ public class Encherir {
     private Long id;
     private LocalDate date;
     private float prix;
+
+    @ManyToOne
+    private Client client;
+
+    @ManyToOne
+    private Produit produit;
 
     public Encherir() {
     }
@@ -46,5 +53,21 @@ public class Encherir {
 
     public void setPrix(float prix) {
         this.prix = prix;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 }

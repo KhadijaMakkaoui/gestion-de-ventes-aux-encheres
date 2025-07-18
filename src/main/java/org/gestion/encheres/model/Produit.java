@@ -10,27 +10,50 @@ public class Produit {
     @GeneratedValue
     private Long id;
 
-    String libelle;
-    String prix;
-    @Enumerated(EnumType.STRING)
-    Status status;
+    private String libelle;
+    private String prix;
+    private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "categorie_id")
-    private Categorie categorie;
-
-    @ManyToOne
-    @JoinColumn(name = "vendeur_id")
-    private Client vendeur;
-
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "produit")
     private List<Encherir> encheres;
+
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Encherir> getEncheres() {
+        return encheres;
+    }
+
+    public void setEncheres(List<Encherir> encheres) {
+        this.encheres = encheres;
     }
 }

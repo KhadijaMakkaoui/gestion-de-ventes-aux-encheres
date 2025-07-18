@@ -14,23 +14,16 @@ public class Client {
     private String username;
     private String password;
     private String telephone;
-    @Enumerated(EnumType.STRING)
-    private Type type;
 
-    @OneToMany(mappedBy = "acheteur")
-    private List<Encherir> encheres;
 
-    @OneToMany(mappedBy = "vendeur")
-    private List<Produit> articles;
 
     public Client(){
 
     }
-    public Client(String username, String password, String telephone, Type type){
+    public Client(String username, String password, String telephone){
         this.username = username;
         this.password = password;
         this.telephone = telephone;
-        this.type = type;
     }
 
 
@@ -67,11 +60,4 @@ public class Client {
         this.telephone = telephone;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
 }
