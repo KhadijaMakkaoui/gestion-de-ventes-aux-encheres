@@ -2,19 +2,24 @@ package org.gestion.encheres.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 public class Produit {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    String libelle;
-    String prix;
-    @Enumerated(EnumType.STRING)
-    Status status;
+    private String titre;
+    private String description;
+    private String imageUrl;
 
+    private double prixInitial;
+    private double prixActuel;
+
+    private LocalDateTime dateDebut;
+    private LocalDateTime dateFin;
     @ManyToOne
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
@@ -23,7 +28,7 @@ public class Produit {
     @JoinColumn(name = "vendeur_id")
     private Client vendeur;
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "produit")
     private List<Encherir> encheres;
 
     public void setId(Long id) {

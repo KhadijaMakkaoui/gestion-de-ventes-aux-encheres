@@ -1,4 +1,7 @@
 package org.gestion.encheres.repository;
 
-public interface ProduitRepository {
+import org.gestion.encheres.model.Produit;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProduitRepository extends JpaRepository<Produit, Integer> {
 }
