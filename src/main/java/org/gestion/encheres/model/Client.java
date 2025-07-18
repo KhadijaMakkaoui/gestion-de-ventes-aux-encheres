@@ -2,6 +2,8 @@ package org.gestion.encheres.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Client {
 
@@ -15,6 +17,11 @@ public class Client {
     @Enumerated(EnumType.STRING)
     private Type type;
 
+    @OneToMany(mappedBy = "acheteur")
+    private List<Encherir> encheres;
+
+    @OneToMany(mappedBy = "vendeur")
+    private List<Produit> articles;
 
     public Client(){
 

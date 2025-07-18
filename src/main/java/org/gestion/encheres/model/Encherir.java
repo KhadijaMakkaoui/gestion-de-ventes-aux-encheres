@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -11,13 +12,13 @@ public class Encherir {
     @Id
     @GeneratedValue
     private Long id;
-    private Date date;
+    private LocalDate date;
     private float prix;
 
     public Encherir() {
     }
 
-    public Encherir(Long id, Date date, float prix) {
+    public Encherir(Long id, LocalDate date, float prix) {
         this.id = id;
         this.date = date;
         this.prix = prix;
@@ -31,11 +32,11 @@ public class Encherir {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
